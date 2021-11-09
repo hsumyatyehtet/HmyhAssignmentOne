@@ -115,6 +115,7 @@ private fun <T> DataResponse<T>?.processDataResponse(
             success.invoke(this.data)
         } else {
             failure(this.message)
+            Log.e("messageError",this.message)
         }
     } else {
         failure.invoke("Response Was Null")
