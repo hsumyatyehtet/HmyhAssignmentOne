@@ -1,7 +1,8 @@
-package dev.hmyh.hmyhassignmentone
+package dev.hmyh.hmyhassignmentone.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import dev.hmyh.hmyhassignmentone.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

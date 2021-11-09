@@ -10,8 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HmyhAssignmentOne">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".activity.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.HmyhAssignmentOne.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
