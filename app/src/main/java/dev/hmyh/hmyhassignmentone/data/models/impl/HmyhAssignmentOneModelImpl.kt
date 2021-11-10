@@ -47,5 +47,9 @@ object HmyhAssignmentOneModelImpl: BaseAppModel(),HmyhAssignmentOneModel {
         return mDatabase.topRatedMovieDao().getTopRatedMovie()
     }
 
+    override fun getMovieById(movieId: Long): LiveData<MovieListVO> {
+        return mDatabase.movieListDao().getMovieById(movieId)
+    }
+
 
 }

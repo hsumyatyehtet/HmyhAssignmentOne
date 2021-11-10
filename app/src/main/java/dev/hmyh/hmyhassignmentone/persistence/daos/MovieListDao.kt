@@ -17,4 +17,7 @@ interface MovieListDao {
     @Query("SELECT * from movie_list")
     fun getAllMovieList(): LiveData<List<MovieListVO>>
 
+    @Query("SELECT * from movie_list where id =:movieId")
+    fun getMovieById(movieId: Long): LiveData<MovieListVO>
+
 }

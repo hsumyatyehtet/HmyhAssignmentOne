@@ -13,4 +13,6 @@ interface HmyhAssignmentOneModel {
     ): LiveData<TopRatedMovieVO>
 
     fun getAllTopRatedMovieList(onError: (String)->Unit): LiveData<TopRatedMovieVO>
+
+    fun getMovieById(movieId: Long): LiveData<MovieListVO>
 }

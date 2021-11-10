@@ -1,34 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
     <RelativeLayout
-        android:id="@+id/rlImageView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:foreground="@drawable/movie_detail_img">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/ivMovieDetail"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvImage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_launcher_background"
-            android:scaleType="fitXY"/>
+            android:layout_height="250dp">
+
+            <RelativeLayout
+                android:id="@+id/rlImageView"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:foreground="@drawable/movie_detail_img">
+
+                <ImageView
+                    android:id="@+id/ivMovieDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_launcher_background" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvMovieDetailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cvImage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginEnd="@dimen/margin_medium_2"
+            android:text="Vincenzo"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/text_regular_3x"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/llGp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvMovieDetailTitle"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_large"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tvMovieDetailLblYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="Year"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/text_small" />
+
+                <TextView
+                    android:id="@+id/tvMovieDetailYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvMovieDetailLblYear"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="2021"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/text_regular_2x"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tvMovieDetailLblPopular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="Popularity"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/text_small" />
+
+                <TextView
+                    android:id="@+id/tvMovieDetailPopular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvMovieDetailLblPopular"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:textColor="@color/primary_text"
+                    android:text="24.654"
+                    android:textSize="@dimen/text_regular_2x" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tvMovieDetailLblVountCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="VoteCount"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/text_small" />
+
+                <TextView
+                    android:id="@+id/tvMovieDetailVountCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvMovieDetailLblVountCount"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="3213"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/text_regular_2x"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvMovieDetailOverview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llGp"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_xlarge"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:text="3213"
+            android:textSize="@dimen/text_regular"
+            android:textColor="@color/secondary_text"/>
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tvMovieDetailTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rlImageView"
-        android:text="Vincenzo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:textSize="@dimen/text_regular_2x"
-        android:textStyle="bold"/>
-
-
-</RelativeLayout>
+</androidx.core.widget.NestedScrollView>

@@ -20,8 +20,10 @@ class MovieViewHolder(itemView: View,delegate: MovieAdapter.Delegate):
     override fun bindData(data: MovieListVO) {
         mData = data
 
+        var photoPath ="http://image.tmdb.org/t/p/w500"
+
         Glide.with(itemView.context)
-            .load(data.posterPath)
+            .load(photoPath+data.posterPath)
             .into(itemView.ivMovieImage)
         itemView.tvMovieTitle.text = data.title
     }

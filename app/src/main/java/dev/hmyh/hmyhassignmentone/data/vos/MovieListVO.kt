@@ -18,6 +18,9 @@ data class MovieListVO(
     @SerializedName("overview")
     var overView: String?=null,
 
+    @SerializedName("popularity")
+    var popularity: Float?=null,
+
     @SerializedName("poster_path")
     var posterPath: String?=null,
 
@@ -25,5 +28,8 @@ data class MovieListVO(
     var title: String?=null,
 
     @SerializedName("release_date")
-    var releaseDate: String?=null
+    var releaseDate: String?=null,
+
+    @SerializedName("vote_count")
+    var voteCount: Long?=null
 )
