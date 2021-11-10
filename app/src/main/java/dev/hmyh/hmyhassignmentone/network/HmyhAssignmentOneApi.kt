@@ -12,11 +12,16 @@ import retrofit2.http.*
 
 interface HmyhAssignmentOneApi {
 
+//    @GET(GET_ALL_TOP_RATED_MOVIE)
+//    fun loadAllTopRatedMovie(
+//        @Query(PARAM_API_KEY)apiKey: String,
+//        @Query(PARAM_LANGUAGE)language: String
+//    ):Observable<DataResponse<TopRatedMovieVO>>
+
     @GET(GET_ALL_TOP_RATED_MOVIE)
     fun loadAllTopRatedMovie(
         @Query(PARAM_API_KEY)apiKey: String,
         @Query(PARAM_LANGUAGE)language: String
-    ):Observable<DataResponse<TopRatedMovieVO>>
-
+    ):Observable<TopRatedMovieVO>
 
 }

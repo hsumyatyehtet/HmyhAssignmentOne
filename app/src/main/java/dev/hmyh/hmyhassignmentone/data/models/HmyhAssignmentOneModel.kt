@@ -12,5 +12,5 @@ interface HmyhAssignmentOneModel {
         onFailure: (String)->Unit
     ): LiveData<TopRatedMovieVO>
 
-    fun getAllTopRatedMovieList(onError: (String)->Unit): LiveData<List<MovieListVO>>
+    fun getAllTopRatedMovieList(onError: (String)->Unit): LiveData<TopRatedMovieVO>
 }

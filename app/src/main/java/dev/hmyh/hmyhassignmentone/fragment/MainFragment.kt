@@ -44,8 +44,10 @@ class MainFragment : Fragment() {
 
     private fun setUpDataObservations() {
         mMovieViewModel.getMovieListLiveData().observe(viewLifecycleOwner, Observer {
-            it?.let { movieList->
-                mAdapter.setNewData(movieList as MutableList<MovieListVO>)
+            it?.let { topRatedMove->
+                topRatedMove.movieList.let { movieList->
+                    mAdapter.setNewData(movieList as MutableList<MovieListVO>)
+                }
             }
         })
     }

@@ -7,26 +7,20 @@ import dev.hmyh.hmyhassignmentone.data.models.HmyhAssignmentOneModel
 import dev.hmyh.hmyhassignmentone.data.models.impl.HmyhAssignmentOneModelImpl
 import dev.hmyh.hmyhassignmentone.data.vos.MetaVO
 import dev.hmyh.hmyhassignmentone.data.vos.MovieListVO
+import dev.hmyh.hmyhassignmentone.data.vos.TopRatedMovieVO
 
 class MovieViewModel: ViewModel() {
 
     private val mHmyhAssignmentOneModel: HmyhAssignmentOneModel = HmyhAssignmentOneModelImpl
 
-    private var mTopRatedMovieList: MutableList<MovieListVO> = mutableListOf()
-    private var mMeta: MetaVO?=null
-
     private val errorLiveData: MutableLiveData<String> = MutableLiveData()
 
-    private val movieListLiveData: LiveData<List<MovieListVO>> = mHmyhAssignmentOneModel.getAllTopRatedMovieList {
+    private val movieListLiveData: LiveData<TopRatedMovieVO> = mHmyhAssignmentOneModel.getAllTopRatedMovieList {
         errorLiveData.postValue(it)
     }
 
-    fun getMovieListLiveData(): LiveData<List<MovieListVO>>{
+    fun getMovieListLiveData(): LiveData<TopRatedMovieVO>{
         return movieListLiveData
-    }
-
-    fun getErrorLivedata(): LiveData<String>{
-        return errorLiveData
     }
 
     fun onUiReady(){
