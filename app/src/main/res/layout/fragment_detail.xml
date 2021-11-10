@@ -4,21 +4,31 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Detail"
-        android:id="@+id/tvDetail"
-        android:layout_centerInParent="true"
-        android:textColor="@color/black"
-        android:textSize="24sp"/>
+    <RelativeLayout
+        android:id="@+id/rlImageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:foreground="@drawable/movie_detail_img">
 
-    <Button
-        android:id="@+id/btnBack"
-        android:layout_below="@+id/tvDetail"
+        <ImageView
+            android:id="@+id/ivMovieDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher_background"
+            android:scaleType="fitXY"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvMovieDetailTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back"
-        android:layout_centerInParent="true"/>
+        android:layout_below="@+id/rlImageView"
+        android:text="Vincenzo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:textSize="@dimen/text_regular_2x"
+        android:textStyle="bold"/>
+
 
 </RelativeLayout>

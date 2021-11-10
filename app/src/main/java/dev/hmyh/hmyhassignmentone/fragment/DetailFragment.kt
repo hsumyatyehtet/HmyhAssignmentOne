@@ -26,13 +26,13 @@ class DetailFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        var movieId = args.movieId
-//        Log.d("movieId", movieId.toString())
+        setUpDataObservation()
 
-        btnBack.setOnClickListener {
-            findNavController().popBackStack()
-        }
+    }
 
+    private fun setUpDataObservation() {
+        var movieId = args.movieId
+       
     }
 
 }

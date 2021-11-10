@@ -32,6 +32,11 @@ object HmyhAssignmentOneModelImpl: BaseAppModel(),HmyhAssignmentOneModel {
                 it?.let { topRatedMovieVO ->
                     mDatabase.topRatedMovieDao().insetTopRatedMovie(topRatedMovieVO)
                         .subscribeDBWithCompletable()
+
+                    topRatedMovieVO.movieList?.let { it1 ->
+                        mDatabase.movieListDao().insetAllMovieList(it1)
+                            .subscribeDBWithCompletable()
+                    }
                 }
             }, {})
         return liveData

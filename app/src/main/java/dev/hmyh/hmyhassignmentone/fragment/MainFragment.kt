@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
@@ -58,12 +58,15 @@ class MainFragment : Fragment() {
 
         mMovieViewModel.getNavigateToMovieDetailLiveData().observe(viewLifecycleOwner, Observer {movie->
 
-            movie.id?.let {
-                findNavController().navigate(
-                    R.id.action_mainFragment_to_detailFragment,
-                    getBundleMovieDetail(it)
-                )
+            if (viewLifecycleOwner.lifecycle.currentState == Lifecycle.State.RESUMED){
+                movie.id?.let {
+                    findNavController().navigate(
+                        R.id.action_mainFragment_to_detailFragment,
+                        getBundleMovieDetail(it)
+                    )
+                }
             }
+
         })
 
     }
@@ -79,5 +82,6 @@ class MainFragment : Fragment() {
         rvMovie.adapter = mAdapter
 
     }
+
 
 }

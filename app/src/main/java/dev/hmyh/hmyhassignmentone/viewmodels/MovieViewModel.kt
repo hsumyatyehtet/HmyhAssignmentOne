@@ -30,7 +30,7 @@ class MovieViewModel: ViewModel(),MovieAdapter.Delegate{
     fun getNavigateToMovieDetailLiveData(): LiveData<MovieListVO>{
         return navigateToMovieDetailLiveData
     }
-    
+
     fun onUiReady(){
         mHmyhAssignmentOneModel.loadAllTopRatedMovieList(
             onSuccess = {movieList->
@@ -42,26 +42,26 @@ class MovieViewModel: ViewModel(),MovieAdapter.Delegate{
         )
     }
 
-    fun getEnableSwipeRefreshLiveData() : LiveData<Unit>{
-        return enableSwipeRefreshLiveData
-    }
-
-    fun getDisableSwipeRefreshLiveData() : LiveData<Unit>{
-        return disableSwipeRefreshLiveData
-    }
-
-    fun onSwipeRefresh(){
-        enableSwipeRefreshLiveData.postValue(Unit)
-        mHmyhAssignmentOneModel.loadAllTopRatedMovieList(
-            onSuccess = {movieList->
-                disableSwipeRefreshLiveData.postValue(Unit)
-            },
-            onFailure = {
-                disableSwipeRefreshLiveData.postValue(Unit)
-                errorLiveData.postValue(it)
-            }
-        )
-    }
+//    fun getEnableSwipeRefreshLiveData() : LiveData<Unit>{
+//        return enableSwipeRefreshLiveData
+//    }
+//
+//    fun getDisableSwipeRefreshLiveData() : LiveData<Unit>{
+//        return disableSwipeRefreshLiveData
+//    }
+//
+//    fun onSwipeRefresh(){
+//        enableSwipeRefreshLiveData.postValue(Unit)
+//        mHmyhAssignmentOneModel.loadAllTopRatedMovieList(
+//            onSuccess = {movieList->
+//                disableSwipeRefreshLiveData.postValue(Unit)
+//            },
+//            onFailure = {
+//                disableSwipeRefreshLiveData.postValue(Unit)
+//                errorLiveData.postValue(it)
+//            }
+//        )
+//    }
 
     override fun onTapMovieItem(movie: MovieListVO) {
         navigateToMovieDetailLiveData.postValue(movie)
