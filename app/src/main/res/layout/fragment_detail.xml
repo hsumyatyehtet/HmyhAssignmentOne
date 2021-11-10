@@ -8,8 +8,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Detail"
+        android:id="@+id/tvDetail"
         android:layout_centerInParent="true"
         android:textColor="@color/black"
         android:textSize="24sp"/>
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_below="@+id/tvDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>

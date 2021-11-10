@@ -4,20 +4,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import dev.hmyh.hmyhassignmentone.R
 import dev.hmyh.hmyhassignmentone.adapter.MovieAdapter
 import dev.hmyh.hmyhassignmentone.data.vos.MovieListVO
+import dev.hmyh.hmyhassignmentone.utils.getBundleMovieDetail
 import dev.hmyh.hmyhassignmentone.viewmodels.MovieViewModel
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment : Fragment() {
 
     private lateinit var mAdapter: MovieAdapter
     private lateinit var mMovieViewModel: MovieViewModel
+
+    private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +38,6 @@ class MainFragment : Fragment() {
 
         setUpViewModel()
         setUpRecyclerView()
-        setUpListener()
 
         setUpOnUiReady()
         setUpDataObservations()
@@ -50,6 +55,17 @@ class MainFragment : Fragment() {
                 }
             }
         })
+
+        mMovieViewModel.getNavigateToMovieDetailLiveData().observe(viewLifecycleOwner, Observer {movie->
+
+            movie.id?.let {
+                findNavController().navigate(
+                    R.id.action_mainFragment_to_detailFragment,
+                    getBundleMovieDetail(it)
+                )
+            }
+        })
+
     }
 
     private fun setUpViewModel() {
@@ -57,26 +73,11 @@ class MainFragment : Fragment() {
     }
 
     private fun setUpRecyclerView() {
-        mAdapter = MovieAdapter()
+        mAdapter = MovieAdapter(mMovieViewModel)
         val layoutManager = GridLayoutManager(context, 2)
         rvMovie.layoutManager = layoutManager
         rvMovie.adapter = mAdapter
 
-//        mAdapter.setNewData(
-//            mutableListOf(
-//                MovieListVO(1, "ShowDrop"), MovieListVO(2, "DP"),
-//                MovieListVO(3, "Jirisan"), MovieListVO(4, "Mr.Queen"),
-//                MovieListVO(5, "Start-Up"), MovieListVO(6, "DOTS")
-//            )
-//        )
-    }
-
-    private fun setUpListener() {
-//        btnGoDetail.setOnClickListener {
-//            findNavController().navigate(
-//                R.id.action_mainFragment_to_detailFragment
-//            )
-//        }
     }
 
 }
