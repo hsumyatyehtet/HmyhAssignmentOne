@@ -20,6 +20,15 @@
                 android:foreground="@drawable/movie_detail_img">
 
                 <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:elevation="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:src="@drawable/ic_baseline_navigate_before" />
+
+                <ImageView
                     android:id="@+id/ivMovieDetail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

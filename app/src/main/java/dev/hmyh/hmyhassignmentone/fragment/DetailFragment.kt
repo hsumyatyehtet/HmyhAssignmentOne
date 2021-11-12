@@ -35,8 +35,17 @@ class DetailFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpViewModel()
+        setUpListener()
         setUpDataObservation()
 
+    }
+
+    private fun setUpListener() {
+        ivBack.setOnClickListener {
+            ivBack.setOnClickListener {
+                findNavController().popBackStack()
+            }
+        }
     }
 
     private fun setUpViewModel() {

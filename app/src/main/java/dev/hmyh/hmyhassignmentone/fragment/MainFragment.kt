@@ -23,8 +23,6 @@ class MainFragment : Fragment() {
     private lateinit var mAdapter: MovieAdapter
     private lateinit var mMovieViewModel: MovieViewModel
 
-    private val compositeDisposable: CompositeDisposable = CompositeDisposable()
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

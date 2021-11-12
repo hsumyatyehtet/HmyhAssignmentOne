@@ -35,6 +35,7 @@ class MovieViewModel: ViewModel(),MovieAdapter.Delegate{
         )
     }
 
+    //delegate fun
     override fun onTapMovieItem(movie: MovieListVO) {
         navigateToMovieDetailLiveData.postValue(movie)
     }

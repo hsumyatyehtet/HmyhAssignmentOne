@@ -3,6 +3,7 @@ package dev.hmyh.hmyhassignmentone.utils
 const val BASE_URL="https://api.themoviedb.org"
 
 //api
+const val GET_LATEST_MOVIE="/3/movie/latest"
 const val GET_ALL_TOP_RATED_MOVIE="/3/movie/top_rated"
 
 //data
